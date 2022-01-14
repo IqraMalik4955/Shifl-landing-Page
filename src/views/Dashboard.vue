@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
 
 export default {
     name: "Dashboard",
@@ -27,15 +26,11 @@ export default {
         // HelloWorld
     },
     computed: {
-        ...mapGetters(["getUser"]),
     },
     methods: {
-        //
-        ...mapActions(["logout"]),
+
     },
     mounted() {
-        //set current page
-        this.$store.dispatch("page/setPage","dashboard")
     }
 };
 </script>
