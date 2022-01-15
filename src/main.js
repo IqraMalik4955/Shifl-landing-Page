@@ -8,6 +8,7 @@ import vuetify from './plugins/vuetify'
 import 'izitoast/dist/css/iziToast.min.css'
 import countryFlag from "./plugins/country-flag.js"
 
+
 new Vue({
 	store,
 	router,

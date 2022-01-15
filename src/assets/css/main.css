@@ -17,6 +17,7 @@ body,
 
 body p {
     font-size: 14px;
+    color: #4A4A4A;
 }
 
 ul {
@@ -226,10 +227,6 @@ ul {
     line-height: 21px;
 }
 
-.SignIn .col-6,
-.SignIn .col-12:not(:last-of-type) {
-    /* padding-bottom: 0; */
-}
 
 .SignIn .submitFormBtn {
     background: #0171A1;
