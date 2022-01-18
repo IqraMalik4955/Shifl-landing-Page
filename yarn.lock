@@ -8718,10 +8718,10 @@
     "hash-sum" "^1.0.2"
     "loader-utils" "^1.0.2"
 
-"vue-tel-input-vuetify@^1.4.1":
-  "integrity" "sha512-oOswIiWhnkiVoNC4eCJJef4GG0mVkFsiVXTSquTio+oPn4GfMwm5f2OUv9qvuBE5IxdvW2X5WQZOF8IKhN7kHA=="
-  "resolved" "https://registry.npmjs.org/vue-tel-input-vuetify/-/vue-tel-input-vuetify-1.4.1.tgz"
-  "version" "1.4.1"
+"vue-tel-input-vuetify@^1.5.0":
+  "integrity" "sha512-NXIhzBoBh3KgAPZU3i+H3Kzw4Bmj4QkijSf9oz9hDPBJDEzdbffQu6quZNCHLeGHAR5oi1QGJALms8mpmlrkGA=="
+  "resolved" "https://registry.npmjs.org/vue-tel-input-vuetify/-/vue-tel-input-vuetify-1.5.0.tgz"
+  "version" "1.5.0"
   dependencies:
     "awesome-phonenumber" "^2.15.0"
     "vuetify" "^2.2.11"

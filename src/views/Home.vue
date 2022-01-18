@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div  class="bg-img">
+    <div  class="bg-img fill-height">
         <v-row class="px-15 pt-10 mt-0">
             <v-img
                 max-height="100"
@@ -129,8 +129,126 @@
             >
                 <h2 class="mb-4">How it works</h2>
                 <p>For International Shipments</p>
+                <p>designing...</p>
                 <template>
-                    <v-stepper
+                    <div>
+                        <v-card
+                        class="d-flex flex-row align-start grey lighten-5"
+                        flat
+                        tile
+                        >
+                            <v-card
+                                elevation="0"
+                                class="pa-2 grey lighten-5"
+                            >
+                            <v-icon
+                            large
+                            color="green darken-2"
+                            >
+                            mdi-domain
+                            </v-icon>
+                            </v-card>
+                            <v-card
+                                elevation="0"
+                                class="px-2 grey lighten-5"
+                            >
+                                <h4 style="margin-top:0px !important">Enter MBL number</h4>
+                            </v-card>
+                        </v-card>
+                        <v-card
+                        class="d-flex flex-row align-start ma-o"
+                        flat
+                        tile
+                        >
+                            <v-card
+                                elevation="0"
+                                class="pa-2 ml-5"
+                                style="border-left: 1.5px dashed #0171A1"
+                            >
+                            </v-card>
+                            <v-card
+                                elevation="0"
+                                class="pa-2"
+                            >
+                                <h4 style="margin-top:0px !important"></h4>
+                            </v-card>
+                        </v-card>
+                    </div>
+                </template>
+                <template>
+                    <v-timeline
+                    align-top
+                    dense
+                    >
+                    <v-timeline-item
+                        fill-dot
+                        class="white--text"
+                        color="#0171A1"
+                    >
+                        <template v-slot:icon>
+                        <span>1</span>
+                        </template>
+                        <h4>Enter MBL number</h4>
+                    </v-timeline-item>
+                    <v-timeline-item
+                        fill-dot
+                        class="white--text"
+                        color="#0171A1"
+                    >
+                        <template v-slot:icon>
+                        <span>2</span>
+                        </template>
+                        <h4>Issue payment</h4>
+                    </v-timeline-item>
+                    <v-timeline-item
+                        fill-dot
+                        class="white--text"
+                        color="#0171A1"
+                    >
+                        <template v-slot:icon>
+                        <span>3</span>
+                        </template>
+                        <h4>Shifl's automatic Cargo tracking is then initiated</h4>
+                        <p>
+                            At any point you can then issues Same Day payments to all carriers, terminals, and other important providers with the click of a button.
+                        </p>
+                        <p>
+                            Instant transfer and/or instant releases available for participating providers.
+                        </p>
+                    </v-timeline-item>
+                    <v-timeline-item
+                        fill-dot
+                        class="white--text"
+                        color="#0171A1"
+                    >
+                        <template v-slot:icon>
+                        <span>4</span>
+                        </template>
+                        <h4>Terminal release</h4>
+                        <p>
+                            The payment receipt is automatically forwarded to the provider,  shifl's powerful tracking will follow up to make sure the terminal release is then posted. 
+                        </p>
+                    </v-timeline-item>
+                    <v-timeline-item
+                        fill-dot
+                        class="white--text"
+                        color="#0171A1"
+                    >
+                        <template v-slot:icon>
+                        <span>5</span>
+                        </template>
+                        <h4>
+                            Monitor release
+                        </h4>
+                        <p>
+                            You can continue to monitor releases, availability and out gate. As well as demurrage alerts on case of any shipments left after last free day.
+                        </p>
+                    </v-timeline-item>
+
+                    </v-timeline>
+                </template>
+                <template>
+                    <!-- <v-stepper
                         alevation="0"
                         vertical
                     >
@@ -162,13 +280,13 @@
                         </small>
                         </v-stepper-step>
                         <v-stepper-content></v-stepper-content>
-                        <v-stepper-step step="4">
+                        <v-stepper-step step="5">
                         Monitor release
                         <small class="pt-2">
                             You can continue to monitor releases, availability and out gate. As well as <br> demurrage alerts on case of any shipments left after last free day.
                         </small>
                         </v-stepper-step>
-                    </v-stepper>
+                    </v-stepper> -->
                 </template>
                 <p style="font-size: 14px; line-height: 20px;">
                     * For any other vendors, shiflpay allows free next day payments at no cost.
@@ -516,11 +634,11 @@
             <v-spacer></v-spacer>
         </v-row>
     </div>
-    <v-dialog v-model="dialog" max-width="560px" content-class="add-supplier-dialog" v-resize="onResize" :retain-focus="false">
-        <v-card class="add-supplier-card">
-            <v-form ref="form"  action="#" @submit.prevent="">
-                <v-card-title>
-                    <span class="headline">Join waiting list</span>
+    <v-dialog v-model="dialog" max-width="560px" max-height="550px" content-class="add-supplier-dialog" v-resize="onResize" :retain-focus="false">
+        <v-card class="add-supplier-card pa-2">
+            <v-form ref="form"  action="#">
+                <v-card-title class="v-flex justify-space-between" style="border:none !important">
+                    <span class="headline">Join Waiting List</span>
 
                     <button icon dark class="btn-close" @click="close">
                         <v-icon>mdi-close</v-icon>
@@ -530,8 +648,9 @@
                 <v-card-text>
                     <v-row>
                         <v-col cols="12" sm="12" md="12" class="pb-0">
-                            <label class="text-item-label">Company Name</label>
+                            <label class="text-item-label capitalize">Company Name</label>
                             <v-text-field 
+                                v-model="data.company_name"
                                 placeholder="e.g. Abc corporation ltd" 
                                 outlined 
                                 class="text-fields"
@@ -541,7 +660,8 @@
                         </v-col> 
                         <v-col cols="12" sm="12" md="12" lg="6" class="pb-0">
                             <label class="text-item-label">Business Type</label>
-                            <v-text-field 
+                            <v-text-field
+                                v-model="data.business_type"
                                 placeholder="Select Type" 
                                 outlined 
                                 class="text-fields"
@@ -551,18 +671,20 @@
                         </v-col>                      
                         <v-col cols="12" sm="12" md="12" lg="6" class="pb-0">
                             <label class="text-item-label">Approximate Annual Shipments</label>
-                            <v-text-field 
+                            <v-text-field
+                                v-model="data.approximate_annual_shipments"
+                                type="number"
                                 placeholder="Enter no of shipment" 
                                 outlined 
                                 class="text-fields"
-                                :rules="rules"
+                                :rules="numberRules"
                                 hide-details="auto">
                             </v-text-field>
                         </v-col> 
                         <v-col cols="12" sm="12" md="12" lg="6" class="pb-1">
-                            <label class="text-item-label">Phone Number</label>
+                            <label class="text-item-label">Phone</label>
                             <vue-tel-input-vuetify
-                                class="text-fields"
+                                class="d-flex align-start text-fields"
                                 type="number"
                                 outlined
                                 dense
@@ -571,22 +693,24 @@
                                 :valid-characters-only="true"
                                 :rules="numberRules"
                                 v-bind="telProps"
-                            />
+                                v-model="data.phone_number" />
                         </v-col>
 
                         <v-col cols="12" sm="12" md="12" lg="6" class="pb-0">
                             <label class="text-item-label">Email Address</label>
                             <v-text-field
-                                 placeholder="example@gmail.com" 
+                                v-model="data.email"
+                                placeholder="example@gmail.com" 
                                 outlined 
                                 class="text-fields"
-                                :rules="rules"
+                                :rules="arrayNotEmptyRules"
                                 hide-details="auto">
                                 </v-text-field>
                         </v-col>
                         <v-col cols="12" sm="12" md="12" lg="6" class="pb-0">
                             <label class="text-item-label">Contact Person</label>
-                            <v-text-field 
+                            <v-text-field
+                                v-model="data.contact_person"
                                 placeholder="Type Name" 
                                 outlined 
                                 class="text-fields"
@@ -598,77 +722,105 @@
                     </v-row>
                 </v-card-text>
 
-                <v-card-actions>
-
-                    <v-btn class="" @click="dsuccess">
-                        Join Waiting List
+                <v-card-actions style="border:none !important">
+                    <v-btn
+                        @click="dsuccess"
+                        color="#0171A1"
+                        elevation="0"
+                        class="white--text text-capitalize mx-1"
+                        >Join Waiting List
                     </v-btn>
                 </v-card-actions>
             </v-form>
         </v-card>
     </v-dialog>
-            <v-dialog v-model="dialogSuccess" max-width="500px" content-class="item-delete-dialog">
-            <v-card class="delete-dialog text-center align-center justify-center">
-                <v-card-title class="headline">
-                    <div class="delete-icon mt-3 mb-1">
-                        <img src="../assets/icons/check-completed.png" alt="">
-                    </div>
-                </v-card-title>
-
-                <v-card-text style="padding-bottom: 15px;">
-                    <h2>
-                        <!--  Success -->
-                        You are on the list
-                    </h2>
-                    <p>
-                        Thank you for joining the waiting list. A team members will reach out to you as soon as we are ready to take you onboard.
-                    </p>
-
-                </v-card-text>
-                
-                <v-card-actions class="delete-btn-wrapper">
-                    <v-btn class="cancel-btn" text @click="successclose">Close</v-btn>
-                </v-card-actions>
-            </v-card>
-        </v-dialog>
+    <v-dialog v-model="dialogSuccess" max-width="360px" content-class="">
+        <template>
+            <div class="pa-5 white">
+                <div class="d-block white pa-2 text-center">
+                    <img style="max-width:44px; max-height:44px;" src="../assets/icons/checkmark.svg" alt="">
+                </div>
+                <div class="d-block white text-center">
+                    <h2 class="modal-h">
+                    <!--  Success -->
+                    You are on the list
+                </h2>
+                <p class="modal-p">
+                    Thank you for joining the waiting list. A team members will reach out to you as soon as we are ready to take you onboard.
+                </p>
+                </div>
+                <div class="d-block pa-2 white text-center">
+                    <v-btn
+                        block
+                        color="#0171A1"
+                        elevation="0"
+                        @click="successclose"
+                        class="white--text text-capitalize mx-1"
+                        >Close
+                    </v-btn>
+                </div>
+            </div>
+        </template>
+    </v-dialog>
+        <!-- <JoinDialog
+        :dialog.sync="dialog"
+        /> -->
 </div>
 </template>
 <script>
-    import VueTelInputVuetify from "vue-tel-input-vuetify/lib/vue-tel-input-vuetify.vue"
-    import VueTagsInput from '@johmun/vue-tags-input';
+    // import JoinDialog from './Join.vue'
   export default {
     data: () => ({
     components: {
-        VueTelInputVuetify,
-        VueTagsInput
+        // JoinDialog
+
     },
-      model: 0,
+    //   model: 0,
+      step: 1,
+      phone: null,
       e6: 1,
       dialog: false,
       dialogSuccess: false,
-      phone: null,
-      colors: [
-        'primary',
-        'secondary',
-        'yellow darken-2',
-        'red',
-        'orange',
-      ],
+        rules: [
+        (v) => !!v || "Input is required."
+        ],
+        numberRules: [
+            (v) => !!v || "Input is required.",
+            (v) => /^(?=.*[0-9])[- +()0-9]+$/.test(v) || "Letters are not allowed."
+        ],
+        telProps: {
+            mode: "international",
+            defaultCountry: "US",
+            placeholder: "Type phone number",
+            label: 'Type phone number',
+            autocomplete: "off",
+            maxLen: 25,
+            preferredCountries: ["US", "CN"],
+            enabledCountryCode: true,
+            dropdownOptions: {
+                showDialCodeInSelection: true,
+                showFlags: true
+            },
+            validCharactersOnly: true
+        },
     }),
       methods:{
       joinwaitinglist()
       {
         this.dialog=true;
+        alert(this.dialog)
       },
       close(){
           this.dialog=false;
       },
     dsuccess(){
+        this.dialog=false;
         this.dialogSuccess=true;
     },
     successclose(){
         this.dialogSuccess=false;
-    }
+    },
+
   }
   }
 </script>
@@ -676,6 +828,7 @@
 <style scoped lang="scss">
 .bg-img{   
     background-image: url("../assets/images/hero.png");
+    background-size: cover !important;
 }
 .v-stepper{
     background-color: transparent !important;
@@ -746,5 +899,35 @@ td{
 
 .v-autocomplete__content.v-menu__content {
     border-radius: 4px !important;
+}
+.modal-p{
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+}
+.modal-h{
+    font-size: 20px;
+    line-height: 30px;
+    color: #4A4A4A;
+    margin: 8px 0px;
+}
+.v-timeline-item h4{
+   color: #4A4A4A !important;
+   margin-top: 0px !important;
+}
+.v-timeline-item p{
+   font-size: 14px;
+    line-height: 20px;
+    /* or 143% */
+
+
+    /* Dark Grey */
+
+    color: #6D858F;
+}
+.v-timeline{
+    padding-top: 0px !important;
+    
+    border-left: 1.5px dashed #0171A1;
 }
 </style>

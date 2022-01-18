@@ -1,5 +1,5 @@
 <template>
-    <v-app class="v-app-main-wrapper" id="inspire" v-resize="onResize">
+    <v-app class="v-app-main-wrapper" id="inspire">
         <v-main>
             <router-view></router-view>
         </v-main>
@@ -8,7 +8,6 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld';
-
 export default {
 	name: "App"
 };
