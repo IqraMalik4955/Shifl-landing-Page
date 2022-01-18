@@ -634,7 +634,7 @@
             <v-spacer></v-spacer>
         </v-row>
     </div>
-    <v-dialog v-model="dialog" max-width="560px" max-height="550px" content-class="add-supplier-dialog" v-resize="onResize" :retain-focus="false">
+        <v-dialog v-model="dialog" max-width="560px" max-height="550px" content-class="add-supplier-dialog" :retain-focus="false">
         <v-card class="add-supplier-card pa-2">
             <v-form ref="form"  action="#">
                 <v-card-title class="v-flex justify-space-between" style="border:none !important">
@@ -718,6 +718,20 @@
                                 hide-details="auto">
                             </v-text-field>
                         </v-col>
+                        <v-col cols="12" sm="12" md="12" class="pb-0">
+                        <template>
+                            <v-container
+                                class="px-0"
+                                fluid
+                            >
+                                <v-checkbox
+                                v-model="checkbox"
+                                label="Sign up for Shifl mailing list & product updates"
+                                ></v-checkbox>
+                            </v-container>
+                        </template>
+
+                        </v-col>
 
                     </v-row>
                 </v-card-text>
@@ -762,31 +776,48 @@
             </div>
         </template>
     </v-dialog>
-        <!-- <JoinDialog
-        :dialog.sync="dialog"
-        /> -->
+    <!-- <JoinDialog
+    :dialog.sync="dialog"
+    /> -->
 </div>
 </template>
 <script>
+import axios from "axios"
+import VueTelInputVuetify from "vue-tel-input-vuetify/lib/vue-tel-input-vuetify.vue"
     // import JoinDialog from './Join.vue'
   export default {
     data: () => ({
     components: {
         // JoinDialog
+        VueTelInputVuetify
 
     },
     //   model: 0,
+      checkbox: false,
       step: 1,
       phone: null,
       e6: 1,
       dialog: false,
       dialogSuccess: false,
+    data:{
+            company_name:'',
+            business_type:'',
+            approximate_annual_shipments:'',
+            phone_number:'90576',
+            email:'',
+            contact_person:'',
+        },
+        errorMessage:'',
+        // valid: true,
+        // telInputOptions: {
+        //     showDialCodeInSelection: true,
+        //     showDialCodeInList: true,
+        //     showFlags: true,
+        // },
+        // options: [],
+        // value: [],
         rules: [
-        (v) => !!v || "Input is required."
-        ],
-        numberRules: [
-            (v) => !!v || "Input is required.",
-            (v) => /^(?=.*[0-9])[- +()0-9]+$/.test(v) || "Letters are not allowed."
+            (v) => !!v || "Input is required."
         ],
         telProps: {
             mode: "international",
@@ -803,23 +834,40 @@
             },
             validCharactersOnly: true
         },
+        numberRules: [
+            (v) => !!v || "Input is required.",
+            (v) => /^(?=.*[0-9])[- +()0-9]+$/.test(v) || "Letters are not allowed."
+        ],
+        arrayNotEmptyRules: [
+            (v) => !!v || "Email is required",
+            (v) =>  !!v.includes("@") || "Include @",
+
+        ],
     }),
       methods:{
-      joinwaitinglist()
-      {
-        this.dialog=true;
-        alert(this.dialog)
-      },
       close(){
           this.dialog=false;
       },
-    dsuccess(){
-        this.dialog=false;
-        this.dialogSuccess=true;
-    },
-    successclose(){
-        this.dialogSuccess=false;
-    },
+      joinwaitinglist(){
+        this.dialog=true;
+        },
+        dsuccess(){
+            this.dialog=false;
+            axios.post('https://beta.shifl.com/api/join-waiting-list', this.data)
+            .then(res => {
+                this.dialogSuccess=true;
+                console.log(res)
+            }
+            )
+            .catch(error => {
+                this.errorMessage = error.message;
+                console.log(error.response.data.email)
+            }
+            )
+        },
+        successclose(){
+            this.dialogSuccess=false;
+        },
 
   }
   }

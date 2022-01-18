@@ -3,7 +3,7 @@
     <v-btn  @click="joinwaitinglist">
         clik me
     </v-btn>
-        <v-dialog v-model="dialog" max-width="560px" max-height="550px" content-class="add-supplier-dialog" v-resize="onResize" :retain-focus="false">
+    <v-dialog v-model="dialog" max-width="560px" max-height="550px" content-class="add-supplier-dialog" v-resize="onResize" :retain-focus="false">
         <v-card class="add-supplier-card pa-2">
             <v-form ref="form"  action="#">
                 <v-card-title class="v-flex justify-space-between" style="border:none !important">
@@ -87,6 +87,12 @@
                                 hide-details="auto">
                             </v-text-field>
                         </v-col>
+                        <v-col cols="12" sm="12" md="12" class="pb-0">
+                            <v-checkbox
+                                v-model="checkbox"
+                                :label="Checkbox"
+                            ></v-checkbox>
+                        </v-col>
 
                     </v-row>
                 </v-card-text>
@@ -147,6 +153,7 @@ export default {
         VueTelInputVuetify,
     },
     data: () => ({
+        checkbox: false,
         dialogSuccess: false,
         data:{
             company_name:'',
@@ -194,13 +201,13 @@ export default {
         ],
     }),
     methods: {
-    joinwaitinglist()
-      { alert(this.dialog)
+        joinwaitinglist(){
+        alert(this.dialog)
         this.dialog=true;
-      },
-      close(){
-          this.dialog=false;
-      },
+        },
+        close(){
+            this.dialog=false;
+        },
         dsuccess(){
             this.dialog=false;
             axios.post('https://beta.shifl.com/api/join-waiting-list', this.data)
