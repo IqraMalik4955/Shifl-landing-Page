@@ -236,8 +236,9 @@ export default {
 
 <style lang="scss">
 
-.v-autocomplete__content.v-menu__content {
+.v-autocomplete__content .v-menu__content {
     border-radius: 4px !important;
+}
 .vue-tel-input input::placeholder {
     color: #B4CFE0 !important;
 }
@@ -263,7 +264,6 @@ export default {
 .vue-tel-input .vti__dropdown.open .vti__dropdown-list.below .vti__dropdown-item {
     padding: 4px 8px !important;
 }
-@import '../assets/scss/pages_scss/globalDialog.scss';
-@import '../assets/scss/pages_scss/AddDialog.scss';
-}
+// @import '../assets/scss/pages_scss/globalDialog.scss';
+// @import '../assets/scss/pages_scss/AddDialog.scss';
 </style>

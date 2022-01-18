@@ -113,6 +113,7 @@
                         color="#0171A1"
                         elevation="0"
                         rounded
+                        @click="joinwaitinglist"
                         class="white--text text-capitalize mx-1"
                         >Join Waiting List
                         </v-btn>
@@ -599,6 +600,7 @@
                     color="#0171A1"
                     elevation="0"
                     rounded
+                    @click="joinwaitinglist"
                     class="white--text text-capitalize mx-1 mb-10"
                     >Join Waiting List
                     </v-btn>
@@ -685,7 +687,7 @@
                         <v-col cols="12" sm="12" md="12" lg="6" class="pb-1">
                             <label class="text-item-label">Phone</label>
                             <vue-tel-input-vuetify
-                                class="d-flex align-start text-fields"
+                                class="d-flex align-start vue-tel-input"
                                 type="number"
                                 outlined
                                 dense
@@ -985,5 +987,30 @@ td{
     padding-top: 0px !important;
     
     border-left: 1.5px dashed #0171A1;
+}
+
+.vue-tel-input input::placeholder {
+    color: #B4CFE0 !important;
+}
+.vue-tel-input {
+    min-height: 45px !important;
+    font-size: 14px !important;
+    background-color: #fff !important;
+}
+
+.vue-tel-input .vti__dropdown-arrow {
+    margin-left: 8px !important;
+}
+
+.vue-tel-input .vti__dropdown.open .vti__dropdown-list.below {
+    z-index: 99999 !important;
+    padding-left: 0 !important;
+}
+.vue-tel-input .fieldset{
+    margin-right:5px !important;
+}
+
+.vue-tel-input .vti__dropdown.open .vti__dropdown-list.below .vti__dropdown-item {
+    padding: 4px 8px !important;
 }
 </style>
