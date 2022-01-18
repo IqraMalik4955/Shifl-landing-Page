@@ -9,6 +9,7 @@ import 'izitoast/dist/css/iziToast.min.css'
 import countryFlag from "./plugins/country-flag.js"
 import VueTelInputVuetify from "vue-tel-input-vuetify";
 import vuetifyMoney from "./plugins/vuetify-money.js";
+
 import axios from 'axios';
 Vue.config.productionTip = false;
 Vue.use(VueTelInputVuetify, {

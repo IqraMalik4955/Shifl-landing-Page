@@ -636,7 +636,7 @@
     </div>
         <v-dialog v-model="dialog" max-width="560px" max-height="550px" content-class="add-supplier-dialog" :retain-focus="false">
         <v-card class="add-supplier-card pa-2">
-            <v-form ref="form"  action="#">
+            <v-form ref="form"  @submit.prevent="dsuccess">
                 <v-card-title class="v-flex justify-space-between" style="border:none !important">
                     <span class="headline">Join Waiting List</span>
 
@@ -660,14 +660,15 @@
                         </v-col> 
                         <v-col cols="12" sm="12" md="12" lg="6" class="pb-0">
                             <label class="text-item-label">Business Type</label>
-                            <v-text-field
+                            <v-select
+                                :items="items"
                                 v-model="data.business_type"
                                 placeholder="Select Type" 
                                 outlined 
                                 class="text-fields"
-                                :rules="rules"
+                                :rules="bussinessRules"
                                 hide-details="auto">
-                            </v-text-field>
+                            </v-select>
                         </v-col>                      
                         <v-col cols="12" sm="12" md="12" lg="6" class="pb-0">
                             <label class="text-item-label">Approximate Annual Shipments</label>
@@ -738,7 +739,7 @@
 
                 <v-card-actions style="border:none !important">
                     <v-btn
-                        @click="dsuccess"
+                        type="submit"
                         color="#0171A1"
                         elevation="0"
                         class="white--text text-capitalize mx-1"
@@ -783,16 +784,19 @@
 </template>
 <script>
 import axios from "axios"
-import VueTelInputVuetify from "vue-tel-input-vuetify/lib/vue-tel-input-vuetify.vue"
+import VueTelInputVuetify from "../../node_modules/vue-tel-input-vuetify/lib/vue-tel-input-vuetify";
+//import VueTelInputVuetify from "vue-tel-input-vuetify/lib/vue-tel-input-vuetify.vue"
     // import JoinDialog from './Join.vue'
   export default {
-    data: () => ({
-    components: {
+     components: {
         // JoinDialog
         VueTelInputVuetify
 
     },
+    data: () => ({
+   
     //   model: 0,
+      items: ['Shipper','Carrier','Cargo Terminal','Forwarder/Customs', 'Trucker/Broker', 'Warehouse', 'Other'],
       checkbox: false,
       step: 1,
       phone: null,
@@ -803,7 +807,7 @@ import VueTelInputVuetify from "vue-tel-input-vuetify/lib/vue-tel-input-vuetify.
             company_name:'',
             business_type:'',
             approximate_annual_shipments:'',
-            phone_number:'90576',
+            phone_number:'',
             email:'',
             contact_person:'',
         },
@@ -830,7 +834,9 @@ import VueTelInputVuetify from "vue-tel-input-vuetify/lib/vue-tel-input-vuetify.
             enabledCountryCode: true,
             dropdownOptions: {
                 showDialCodeInSelection: true,
-                showFlags: true
+                showFlags: true,
+                showDialCodeInList: true,
+                validCharactersOnly: true
             },
             validCharactersOnly: true
         },
@@ -855,6 +861,8 @@ import VueTelInputVuetify from "vue-tel-input-vuetify/lib/vue-tel-input-vuetify.
             this.dialog=false;
             axios.post('https://beta.shifl.com/api/join-waiting-list', this.data)
             .then(res => {
+                this.dialog=false;
+                setTimeout(5000);
                 this.dialogSuccess=true;
                 console.log(res)
             }

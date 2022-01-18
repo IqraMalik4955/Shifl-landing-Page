@@ -29,14 +29,15 @@
                         </v-col> 
                         <v-col cols="12" sm="12" md="12" lg="6" class="pb-0">
                             <label class="text-item-label">Business Type</label>
-                            <v-text-field
+                            <v-select
+                                :items="items"
                                 v-model="data.business_type"
                                 placeholder="Select Type" 
                                 outlined 
                                 class="text-fields"
-                                :rules="rules"
+                                :rules="bussinessRules"
                                 hide-details="auto">
-                            </v-text-field>
+                            </v-select>
                         </v-col>                      
                         <v-col cols="12" sm="12" md="12" lg="6" class="pb-0">
                             <label class="text-item-label">Approximate Annual Shipments</label>
@@ -53,7 +54,7 @@
                         <v-col cols="12" sm="12" md="12" lg="6" class="pb-1">
                             <label class="text-item-label">Phone</label>
                             <vue-tel-input-vuetify
-                                class="d-flex align-start text-fields"
+                                class="d-flex align-start text-fields  vue-tel-input"
                                 type="number"
                                 outlined
                                 dense
@@ -153,6 +154,7 @@ export default {
         VueTelInputVuetify,
     },
     data: () => ({
+        items: ['Shipper','Carrier','Cargo Terminal','Forwarder/Customs', 'Trucker/Broker', 'Warehouse', 'Other'],
         checkbox: false,
         dialogSuccess: false,
         data:{
@@ -199,6 +201,9 @@ export default {
             (v) =>  !!v.includes("@") || "Include @",
 
         ],
+        bussinessRules: [
+            (v) => !!v || "Business type is required",
+        ],
     }),
     methods: {
         joinwaitinglist(){
@@ -234,26 +239,29 @@ export default {
 .v-autocomplete__content.v-menu__content {
     border-radius: 4px !important;
 .vue-tel-input input::placeholder {
-    color: #B4CFE0;
+    color: #B4CFE0 !important;
 }
 .vue-tel-input {
-    min-height: 45px;
+    min-height: 45px !important;
     border: 1px solid #B4CFE0 !important;
-    font-size: 14px;
+    font-size: 14px !important;
     background-color: #fff !important;
 }
 
 .vue-tel-input .vti__dropdown-arrow {
-    margin-left: 8px;
+    margin-left: 8px !important;
 }
 
 .vue-tel-input .vti__dropdown.open .vti__dropdown-list.below {
-    z-index: 99999;
-    padding-left: 0;
+    z-index: 99999 !important;
+    padding-left: 0 !important;
+}
+.vue-tel-input .fieldset{
+    margin-right:5px !important;
 }
 
 .vue-tel-input .vti__dropdown.open .vti__dropdown-list.below .vti__dropdown-item {
-    padding: 4px 8px;
+    padding: 4px 8px !important;
 }
 @import '../assets/scss/pages_scss/globalDialog.scss';
 @import '../assets/scss/pages_scss/AddDialog.scss';
