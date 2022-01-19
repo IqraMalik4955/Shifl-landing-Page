@@ -1,10 +1,18 @@
 <template>
 <div>
     <div  class="bg-img fill-height">
-        <v-row class="px-15 pt-10 mt-0">
+        <v-row class="px-15 pt-10 mt-0" v-if="$vuetify.breakpoint.lg || $vuetify.breakpoint.xl || $vuetify.breakpoint.md">
             <v-img
                 max-height="100"
                 max-width="150"
+            src="../assets/images/logo.png"
+            ></v-img>
+
+        </v-row>
+        <v-row class="px-10 pt-5 mt-0" v-if="$vuetify.breakpoint.smAndDown">
+            <v-img
+                max-height="60"
+                max-width="110"
             src="../assets/images/logo.png"
             ></v-img>
 
@@ -25,15 +33,13 @@
                 align="center"
                 justify="center"
                 >
-                <v-spacer></v-spacer>
-                <v-col>
-                    <h1 class="text-center" style="font-size:44px; color:white; white-space: nowrap;">
-                    CFintech meets Logtech!
+                <v-col cols="6" v-if="$vuetify.breakpoint.lg || $vuetify.breakpoint.xl || $vuetify.breakpoint.md">
+                    <h1 class="text-center" style="font-size:3rem; color:white; white-space: nowrap; font-weight:600">
+                    Fintech meets Logtech!
                 </h1>
                 <p 
-                class="text-center white--text" style="font-size:20px; line-height: 30px;">
-                    Shifl announces a industry first Logtech-Fintech solution
-                    along their digital supply chain platform
+                class="text-center white--text" style="font-size:1.2rem; line-height: 2rem; font-weight:300">
+                    Shifl announces a industry first Logtech-Fintech solution along their digital supply chain platform.
                 </p>
                 <div class="d-flex justify-center">
                 <v-btn
@@ -59,9 +65,48 @@
                 </v-btn>
                 </div>
                 </v-col>
-                <v-spacer>
-
-                </v-spacer>
+                <v-col v-show="$vuetify.breakpoint.smAndDown">
+                    <h1 class="text-center px-15" style="font-size:2rem; color:white; line-height:2.6rem">
+                    Fintech meets Logtech!
+                    </h1>
+                    <p 
+                    class="text-center white--text mt-5 px-5" style="font-size:1rem;">
+                        Shifl announces a industry first Logtech-Fintech solution along their digital supply chain platform
+                    </p>
+                    <v-row justify="center">
+                        <v-col cols="6" class="d-flex justify-center">
+                            <v-btn
+                                color="#F9C91F"
+                                elevation="0"
+                                @click="joinwaitinglist"
+                                rounded
+                                class="black--text text-capitalize mx-1"
+                                >Join Waiting List
+                            </v-btn>
+                        </v-col>
+                        
+                    </v-row>
+                    <v-row
+                    justify="center"
+                    >
+                        <v-col cols="6" class="d-flex justify-center">
+                            <v-btn
+                                elevation="0"
+                                rounded
+                                class="text-capitalize mx-1"
+                                text
+                                >Learn More
+                                <v-icon
+                                    right
+                                    dark
+                                >
+                                    mdi-chevron-down
+                                </v-icon>
+                            </v-btn>
+                        </v-col>
+                    </v-row>
+                
+                </v-col>
                 </v-row>
             </v-sheet>
             </v-carousel-item>
@@ -72,7 +117,9 @@
             <v-spacer></v-spacer>
             <v-col
             class="pa-15"
+            cols="12"
             lg="6"
+            md="6"
             >
             <p class="font-weight-thin">
                 Shifl is furthering it's goal of bringing the supply chain industry into today's innovative technology age while helping alleviate issues brought on by recent supply chain disruptions.
@@ -93,7 +140,11 @@
         </v-row>
         <v-row class="mb-15">
             <v-spacer></v-spacer>
-            <v-col lg="6">
+            <v-col
+                cols="12"
+                lg="6"
+                md="6"
+            >
                 <v-card
                     color="#F0FBFF"
                     class="pa-15"
@@ -125,7 +176,9 @@
         <v-row class="grey lighten-5">
             <v-spacer></v-spacer>
             <v-col 
-            cols="6"
+            cols="12"
+            lg="6"
+            md="6"
             class="pa-15"
             >
                 <h2 class="mb-4">How it works</h2>
@@ -302,7 +355,9 @@
             <v-spacer></v-spacer>
             <v-col
             class="pa-15"
+            cols="12"
             lg="6"
+            md="6"
             >
             <h2 class="mb-10">Pricing and other features</h2>
             <template>
@@ -589,7 +644,9 @@
         <v-row class="bg-row lighten-5">
             <v-spacer></v-spacer>
             <v-col 
-            cols="6"
+            cols="12"
+            lg="6"
+            md="6"
             class="pa-15"
             >
                 <template>
@@ -616,11 +673,13 @@
         <v-row class="bg-row lighten-5">
             <v-spacer></v-spacer>
             <v-col 
-            cols="6"
+            cols="12"
+            lg="6"
+            md="6"
             >
                 <template>
                     <v-card
-                        class="pa-15 mb-15 text-center"
+                        class="pa-15 mb-lg-15 text-center"
                         elevation="0"
                     >
                         <p style="font-size: 20px; line-height: 30px;">
@@ -636,7 +695,7 @@
             <v-spacer></v-spacer>
         </v-row>
     </div>
-        <v-dialog v-model="dialog" max-width="560px" max-height="550px" content-class="add-supplier-dialog" :retain-focus="false">
+        <v-dialog v-model="dialog" max-width="560px" content-class="add-supplier-dialog" :retain-focus="false">
         <v-card class="add-supplier-card pa-2">
             <v-form ref="form"  @submit.prevent="dsuccess">
                 <v-card-title class="v-flex justify-space-between" style="border:none !important">
@@ -687,18 +746,16 @@
                         <v-col cols="12" sm="12" md="12" lg="6" class="pb-1">
                             <label class="text-item-label">Phone</label>
                             <vue-tel-input-vuetify
-                                class="d-flex align-start vue-tel-input"
+                                class="d-flex align-start text-fields"
                                 type="number"
                                 outlined
-                                dense
                                 single-line
-                                hide-details="auto"
+                                hide-details="true"
                                 :valid-characters-only="true"
                                 :rules="numberRules"
                                 v-bind="telProps"
                                 v-model="data.phone_number" />
                         </v-col>
-
                         <v-col cols="12" sm="12" md="12" lg="6" class="pb-0">
                             <label class="text-item-label">Email Address</label>
                             <v-text-field
@@ -744,13 +801,13 @@
                         type="submit"
                         color="#0171A1"
                         elevation="0"
-                        class="white--text text-capitalize mx-1"
+                        class="white--text text-capitalize"
                         >Join Waiting List
                     </v-btn>
                 </v-card-actions>
             </v-form>
         </v-card>
-    </v-dialog>
+        </v-dialog>
     <v-dialog v-model="dialogSuccess" max-width="360px" content-class="">
         <template>
             <div class="pa-5 white">
@@ -864,7 +921,9 @@ import VueTelInputVuetify from "../../node_modules/vue-tel-input-vuetify/lib/vue
             axios.post('https://beta.shifl.com/api/join-waiting-list', this.data)
             .then(res => {
                 this.dialog=false;
-                setTimeout(5000);
+                this.data='';
+                console.log(this.data)
+                setTimeout(2000);
                 this.dialogSuccess=true;
                 console.log(res)
             }
@@ -987,30 +1046,5 @@ td{
     padding-top: 0px !important;
     
     border-left: 1.5px dashed #0171A1;
-}
-
-.vue-tel-input input::placeholder {
-    color: #B4CFE0 !important;
-}
-.vue-tel-input {
-    min-height: 45px !important;
-    font-size: 14px !important;
-    background-color: #fff !important;
-}
-
-.vue-tel-input .vti__dropdown-arrow {
-    margin-left: 8px !important;
-}
-
-.vue-tel-input .vti__dropdown.open .vti__dropdown-list.below {
-    z-index: 99999 !important;
-    padding-left: 0 !important;
-}
-.vue-tel-input .fieldset{
-    margin-right:5px !important;
-}
-
-.vue-tel-input .vti__dropdown.open .vti__dropdown-list.below .vti__dropdown-item {
-    padding: 4px 8px !important;
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
     <div>
         <v-system-bar
+        v-if="$vuetify.breakpoint.lg || $vuetify.breakpoint.xl || $vuetify.breakpoint.md"
         class="pb-3"
         height="70"
         color="#F0FBFF"
@@ -34,25 +35,8 @@
                 </div>
             </v-col>
         </v-system-bar>
-        
-        <v-row class="dashboard fill-height">
-
-            <!-- <template>
-                <v-app-bar
-                absolute
-                scroll-target="#scrolling-techniques-6"
-                >
-                <v-app-bar-nav-icon>
-                    <v-img
-                src="../assets/images/logo.png"
-                ></v-img>
-                </v-app-bar-nav-icon>
-
-                <v-spacer></v-spacer>
-                <p>hi i am iqra</p>
-                </v-app-bar>
-
-            </template> -->
+        <!-- Desktop -->
+        <v-row class="dashboard fill-height" v-if="$vuetify.breakpoint.lg || $vuetify.breakpoint.xl || $vuetify.breakpoint.md">
             <v-col>
                 <v-row class="pa-5">
                     <v-col class="d-flex align-center justify-space-between">
@@ -97,7 +81,7 @@
                         <h2 class="mb-2" style="font-weight:500">One software coordinating, <br> your global supply chain</h2>
                         <div class="mt-10">
                             <v-btn
-                            color="#F9C91F"
+                            color="#ECA231"
                             elevation="0"
                             rounded
                             to="/home"
@@ -121,6 +105,100 @@
             </v-col>
 
         </v-row>
+        <!-- Mobile -->
+        <v-row class="dashboard-sm fill-height" v-if="$vuetify.breakpoint.smAndDown">
+            <v-col>
+                <v-row class="pa-5">
+                    <v-col class="d-flex align-center justify-space-between flex-wrap">
+                        <v-img
+                            max-height="100"
+                            max-width="150"
+                            src="../assets/images/logo.png"
+                        ></v-img>
+                            <!-- <div
+                            class="d-flex align-center justify-end mb-6"
+                            flat
+                            tile
+                            >
+                            <div class="px-4">
+                                Call Me
+                            </div>
+                            <div class="px-4">
+                                Our Concept
+                            </div>
+                            <div class="px-4">
+                                Reasons to shifl
+                            </div>
+                            <div class="px-4">
+                                Features
+                            </div>
+                            <div  class="pr-10 pl-4" style="border-right: 1px solid white">
+                                Contact Us
+                            </div>
+                            <div class="pl-10">
+                                Login
+                            </div>
+                            </div> -->
+                    </v-col>
+                </v-row>
+                <v-row
+                    style="height: 500px;"
+                    align="center"
+                    justify="center"
+                >
+                    <v-col cols="12" sm="6" class="text-center my-15">
+                        <h1 class="text-center" style="font-size:2rem; color:white; line-height:2.5rem; font-weight:400;">
+                        Supply Chain, Reimagined.
+                        </h1>
+                    <p 
+                    class="text-center white--text mt-2" style="font-size:1.1rem;">
+                        One software coordinating,<br> your global supply chain
+                    </p>
+                    <v-row justify="center">
+                        <v-col cols="6" class="d-flex justify-center">
+                            <v-btn
+                            color="#ECA231"
+                            elevation="0"
+                            rounded
+                            to="/home"
+                            class="text-capitalize mx-1"
+                            >Sign Me Up
+                            </v-btn>
+                        </v-col>
+                        
+                    </v-row>
+                    <v-row
+                    justify="center"
+                    >
+                        <v-col cols="6" class="d-flex justify-center">
+                            <v-btn
+                                class="text-capitalize mx-2"
+                                outlined
+                                elevation="0"
+                                rounded
+                                color="white"
+                                >
+                                Subscribe Newsletter
+                            </v-btn>
+                        </v-col>
+                    </v-row>
+                        
+                    </v-col>
+                    <v-col cols="12" sm="6" class="text-center pa-10">
+                        <v-card
+                        elevation="2"
+                        >
+                        <v-img
+                        src="../assets/images/shifl_mobile-2.png"
+                        >
+                        </v-img>
+                        </v-card>
+                    </v-col>
+                    <v-spacer></v-spacer>
+                </v-row>
+            </v-col>
+        </v-row>
+
     </div>
 </template>
 
@@ -147,6 +225,12 @@ export default {
     background-image: url("../assets/images/image-2.png");
     background-size: cover !important;
     height:100%;
+}
+.dashboard-sm {
+    color:white;
+    background-image: url("../assets/images/image-2.png");
+    background-size: cover !important;
+    min-height:900px;
 }
 h1, h2, .v-btn{
     color:white !important;
