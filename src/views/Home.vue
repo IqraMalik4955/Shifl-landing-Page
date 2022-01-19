@@ -183,52 +183,7 @@
             >
                 <h2 class="mb-4">How it works</h2>
                 <p>For International Shipments</p>
-                <p>designing...</p>
-                <template>
-                    <div>
-                        <v-card
-                        class="d-flex flex-row align-start grey lighten-5"
-                        flat
-                        tile
-                        >
-                            <v-card
-                                elevation="0"
-                                class="pa-2 grey lighten-5"
-                            >
-                            <v-icon
-                            large
-                            color="green darken-2"
-                            >
-                            mdi-domain
-                            </v-icon>
-                            </v-card>
-                            <v-card
-                                elevation="0"
-                                class="px-2 grey lighten-5"
-                            >
-                                <h4 style="margin-top:0px !important">Enter MBL number</h4>
-                            </v-card>
-                        </v-card>
-                        <v-card
-                        class="d-flex flex-row align-start ma-o"
-                        flat
-                        tile
-                        >
-                            <v-card
-                                elevation="0"
-                                class="pa-2 ml-5"
-                                style="border-left: 1.5px dashed #0171A1"
-                            >
-                            </v-card>
-                            <v-card
-                                elevation="0"
-                                class="pa-2"
-                            >
-                                <h4 style="margin-top:0px !important"></h4>
-                            </v-card>
-                        </v-card>
-                    </div>
-                </template>
+
                 <template>
                     <v-timeline
                     align-top
@@ -245,6 +200,7 @@
                         <h4>Enter MBL number</h4>
                     </v-timeline-item>
                     <v-timeline-item
+                    align-top
                         fill-dot
                         class="white--text"
                         color="#0171A1"
@@ -369,7 +325,7 @@
                         <td
                         align="start"
                         class="t-col t-border"
-                        width="80%"
+                        width="78%"
                         >Monthly Fees</td>
                         <td class="t-col-2 white--text t-border"
                         align="center"
@@ -387,7 +343,7 @@
                         <td
                         align="start"
                         class="t-col t-border"
-                        width="80%"
+                        width="78%"
                         >Instant payments to any participating party on the Shifl platform</td>
                         <td class="t-col-2 white--text t-border"
                         align="center"
@@ -404,7 +360,7 @@
                         <td
                         align="start"
                         class="t-col t-border"
-                        width="80%"
+                        width= "78%"
                         >Next day payments to any vendor period</td>
                         <td class="t-col-2 white--text t-border"
                         align="center"
@@ -421,7 +377,7 @@
                         <td
                         align="start"
                         class="t-col t-border"
-                        width="80%"
+                        width="78%"
                         >Same day for any major industry vendor</td>
                         <td class="t-col-2 white--text t-border"
                         align="center"
@@ -439,7 +395,7 @@
                         <td
                         align="start"
                         class="t-col t-border"
-                        width="80%"
+                        width="78%"
                         >Remote check deposits</td>
                         <td class="t-col-2 white--text t-border"
                         align="center"
@@ -456,7 +412,7 @@
                         <td
                         align="start"
                         class="t-col t-border"
-                        width="80%"
+                        width="78%"
                         >ACH transfers from/to other owned accounts</td>
                         <td class="t-col-2 white--text t-border"
                         align="center"
@@ -473,7 +429,7 @@
                         <td
                         align="start"
                         class="t-col t-border"
-                        width="80%"
+                        width="78%"
                         >ATM cash withdrawl and deposit from thousands of ATM machines around three country (Show in Map)</td>
                         <td class="t-col-2 white--text t-border"
                         align="center"
@@ -490,7 +446,7 @@
                         <td
                         align="start"
                         class="t-col t-border"
-                        width="80%"
+                        width="78%"
                         >API blank integrations</td>
                         <td class="t-col-2 white--text t-border"
                         align="center"
@@ -508,7 +464,7 @@
                         <td
                         align="start"
                         class="t-col t-border"
-                        width="80%"
+                        width="78%"
                         >International wire</td>
                         <td class="t-col-2 white--text t-border"
                         align="center"
@@ -525,7 +481,7 @@
                         <td
                         align="start"
                         class="t-col t-border"
-                        width="80%"
+                        width="78%"
                         >Domestic wire</td>
                         <td class="t-col-2 white--text t-border"
                         align="center"
@@ -542,7 +498,7 @@
                         <td
                         align="start"
                         class="t-col t-border"
-                        width="80%"
+                        width="78%"
                         >Same day ACH</td>
                         <td class="t-col-2 white--text t-border"
                         align="center"
@@ -559,7 +515,7 @@
                         <td
                         align="start"
                         class="t-col t-border"
-                        width="80%"
+                        width="78%"
                         >Next day ACH</td>
                         <td class="t-col-2 white--text t-border"
                         align="center"
@@ -576,7 +532,7 @@
                         <td
                         align="start"
                         class="t-col t-border"
-                        width="80%"
+                        width="78%"
                         >Instant transfer from/to owned account by using debit card</td>
                         <td class="t-col-2 white--text t-border"
                         align="center"
@@ -594,7 +550,7 @@
                         <td
                         align="start"
                         class="t-col t-border"
-                        width="80%"
+                        width="78%"
                         >Domestic wire</td>
                         <td class="t-col-2 white--text t-border"
                         align="center"
@@ -611,7 +567,7 @@
                         <td
                         align="start"
                         class="t-col t-border"
-                        width="80%"
+                        width="78%"
                         >Item classifications integrated with customs clearance processing</td>
                         <td class="t-col-2 white--text t-border"
                         align="center"
@@ -628,7 +584,7 @@
                         <td
                         align="start"
                         class="t-col t-border"
-                        width="80%"
+                        width="78%"
                         >Origin booking control with carriers and forwarders</td>
                         <td class="t-col-2 white--text t-border"
                         align="center"
@@ -695,10 +651,10 @@
             <v-spacer></v-spacer>
         </v-row>
     </div>
-        <v-dialog v-model="dialog" max-width="560px" content-class="add-supplier-dialog" :retain-focus="false">
-        <v-card class="add-supplier-card pa-2">
+        <v-dialog v-model="dialog" max-width="560px" max-height="100vh" content-class="add-supplier-dialog" v-resize="onResize" :retain-focus="false">
+        <v-card class="add-supplier-card">
             <v-form ref="form"  @submit.prevent="dsuccess">
-                <v-card-title class="v-flex justify-space-between" style="border:none !important">
+                <v-card-title class="v-flex justify-space-between">
                     <span class="headline">Join Waiting List</span>
 
                     <button icon dark class="btn-close" @click="close">
@@ -792,18 +748,32 @@
                         </template>
 
                         </v-col>
+                        <!-- <v-btn
+                            v-if="$vuetify.breakpoint.smAndDown"
+                            type="submit"
+                            color="#0171A1"
+                            elevation="0"
+                            class="white--text text-capitalize"
+                            >Join Waiting List
+                        </v-btn> -->
 
                     </v-row>
                 </v-card-text>
-
-                <v-card-actions style="border:none !important">
-                    <v-btn
-                        type="submit"
-                        color="#0171A1"
-                        elevation="0"
-                        class="white--text text-capitalize"
-                        >Join Waiting List
-                    </v-btn>
+                <v-card-actions>
+                    <template>
+                        <v-container
+                            class="px-0"
+                            fluid
+                        >
+                            <v-btn
+                                type="submit"
+                                color="#0171A1"
+                                elevation="0"
+                                class="white--text text-capitalize"
+                                >Join Waiting List
+                            </v-btn>
+                        </v-container>
+                        </template>
                 </v-card-actions>
             </v-form>
         </v-card>
@@ -1042,9 +1012,20 @@ td{
 
     color: #6D858F;
 }
-.v-timeline{
-    padding-top: 0px !important;
+.theme--light.v-timeline::before {
+ background: rgba(0, 0, 0, 0); 
+ border-left: 1px dotted #0171A1
+}
+// .v-timeline{
+//     padding: 0px !important;
     
-    border-left: 1.5px dashed #0171A1;
+//     border-left: 1.5px dashed #0171A1;
+// }
+.v-timeline:before{
+    content: "";
+    height: 80%;
+    position: absolute;
+    top: auto;
+    bottom: auto;
 }
 </style>

@@ -3,7 +3,7 @@
 .v-dialog {
     .v-card {
         .v-card__title {
-            border-bottom: 2px solid $table-border;
+            // border-bottom: 2px solid $table-border;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -50,8 +50,8 @@
         }
 
         .v-card__actions {
-            border-top: 2px solid $table-border;
-            height: 70px;
+            // border-top: 2px solid $table-border;
+            // height: 70px;
             position: sticky;
             z-index: 9999;
             bottom: 1px;
@@ -86,13 +86,14 @@
     .v-dialog {
         .v-card {
             .v-card__text {
-                margin-bottom: 65px;
+                // margin-bottom: 65px;
             }
 
             .v-card__actions {
-                position: fixed;
-                width: 100%;
-                bottom: -1px;
+                position: sticky;
+                z-index: 9999;
+                // width: 100%;
+                // bottom: -1px;
                 padding: 8px 12px;
             }
         }
